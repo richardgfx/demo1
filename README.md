@@ -38,21 +38,26 @@ docker run --rm -p 8000:8000 server-opencv-dnn
 # Cloud Mode
 
 test.py, to check the e2e time delay and jitter.
+
 client.py, to check the performance of image classification. 
+
 Needs to modify the public endpoint in the code after the containers are deployed in the public cloud.
-
-# Local Mode - do the inference locally
-
-1_singleton_opencv_dnn.py
-2_singleton_tensorflow_gpu.py
 
 # Client-Server Mode 
 
 3_server_opencv_dnn.py
+
 4_server_tensorflow_gpu.py
 
 test.py, to check the time delay and jitter.
+
 client.py, to check the performance of image classification. 
+
 Needs to modify the endpoint in the code after the servers are deployed.
 
+# Local Mode 
+
+1_singleton_opencv_dnn.py
+
+2_singleton_tensorflow_gpu.py
 
