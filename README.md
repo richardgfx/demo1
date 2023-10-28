@@ -11,57 +11,61 @@ Clients -------- Public Endpoint(RP,Auth,LB,HC) ------- Containers (behind the f
 
 Test the e2e time delay, jitter and throughput for the real-time AI applications. 
 
-# Two container images:
+# Cloud Mode
 
-1)richardxgf/server-tf-gpu (Tensorflow 2.9.3, Cuda 11.2, cuDNN 8.1, OpenCV 4.2, Python 3.8, Flask 3.0, Ubuntu 20)
+Two container images:
+
+1)server-tf-gpu (Tensorflow 2.9.3, Cuda 11.2, cuDNN 8.1, OpenCV 4.2, Python 3.8, Flask 3.0, Ubuntu 20)
 
 Dynamically download the model - GoogLeNet V3 (1000 classes). The first inference would take longer time.
 
 The built-in web server is listening on 8000; after receiving an image, it will do the FP and return the class name and probability (The GPU is not fully utilized because only one image is processed at a time).
 
-2)richardxgf/server-opencv-dnn (OpenCV 3.4, Python 3.8, Flask 3.0, Ubuntu 20)
+Build and Deploy the container image:
+
+cd docker_tensorflow_gpu
+docker image build -t server-tf-gpu .
+docker run --rm --gpus all -p 8000:8000 server-tf-gpu
+
+2)server-opencv-dnn (OpenCV 3.4, Python 3.8, Flask 3.0, Ubuntu 20)
 
 Use OpenCV DNN to load the TensorFlow model - GoogLeNet V1 (1000 classes) and do the inference, no GPU support!
 
 The built-in web server is listening on 8000; after receiving an image, it will do the FP and return the class name and probability.  
 
-# Build and Deployment
-
-cd docker_tensorflow_gpu
-
-docker image build -t server-tf-gpu .
-
-docker run --rm --gpus all -p 8000:8000 server-tf-gpu
+Build and Deploy the container image:
 
 cd docker_opencv_dnn
-
 docker image build -t server-opencv-dnn .
-
 docker run --rm -p 8000:8000 server-opencv-dnn
 
-# Cloud Mode
+run the client:
 
-test.py, to check the e2e time delay and jitter.
+python3 test.py, to check the e2e time delay and jitter.
 
-client.py, to check the performance of image classification. 
+python3 client.py, to check the performance of image classification. 
 
 Needs to modify the public endpoint in the code after the containers are deployed in the public cloud.
 
 # Client-Server Mode 
 
-3_server_opencv_dnn.py
+Run the server:  
 
-4_server_tensorflow_gpu.py
+python3 3_server_opencv_dnn.py ( no GPU support )
 
-test.py, to check the time delay and jitter.
+python3 4_server_tensorflow_gpu.py (WSL2 Ubuntu or Windows Host, needs Tensorflow/Cuda/cuDNN)
 
-client.py, to check the performance of image classification. 
+Run the client:
+
+python3 test.py, to check the time delay and jitter.
+
+python3 client.py, to check the performance of image classification. 
 
 Needs to modify the endpoint in the code after the servers are deployed.
 
 # Local Mode 
 
-1_singleton_opencv_dnn.py
+python3 1_singleton_opencv_dnn.py ( no GPU support )
 
-2_singleton_tensorflow_gpu.py
+python3 2_singleton_tensorflow_gpu.py (WSL2 Ubuntu or Windows Host, needs Tensorflow/Cuda/cuDNN)
 
