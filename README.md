@@ -28,11 +28,15 @@ The built-in web server is listening on 8000; after receiving an image, it will 
 # Build and Deployment
 
 cd docker_tensorflow_gpu
+
 docker image build -t server-tf-gpu .
+
 docker run --rm --gpus all -p 8000:8000 server-tf-gpu
 
 cd docker_opencv_dnn
+
 docker image build -t server-opencv-dnn .
+
 docker run --rm -p 8000:8000 server-opencv-dnn
 
 # Cloud Mode
