@@ -1,7 +1,6 @@
 # Use Case - the real-time and on-demand inference, such as image labeling, object detection and transformation, etc 
 
-Clients -------------  Public Endpoint (Reverse Proxy) ------- Containers    
-                            Auth,LB,HC                   (behind the firewalls)
+Clients -------- Public Endpoint(RP,Auth,LB,HC) ------- Containers (behind the firewalls)
                                
     | <------------------------------> | <---------------------------->|
               HTTPS                              WSS or VPN
