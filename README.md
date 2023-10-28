@@ -1,11 +1,10 @@
 # Use Case - the real-time and on-demand inference, such as image labeling, object detection and transformation, etc 
 
- Client 1  ------------\                                   /----- Container 1  
- Client 2  -------------  Public Endpoint (Reverse Proxy) ------- Container 2    (behind the firewalls)
- Client N  ------------/          Auth,LB,HC               \----- Container M
-
+Clients -------------  Public Endpoint (Reverse Proxy) ------- Containers    
+                            Auth,LB,HC                   (behind the firewalls)
+                               
     | <------------------------------> | <---------------------------->|
-               HTTPS                              WSS or VPN
+              HTTPS                              WSS or VPN
 
 # Goal
 
