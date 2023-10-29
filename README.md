@@ -30,7 +30,7 @@ https://hub.docker.com/repository/docker/richardxgf/server-tf-gpu
 
 Dynamically download the GoogLeNet model; so, the first inference would take longer time. The GPU may not be fully utilized because only one image is processed at a time by the current implementation.
 
-The Python/Flask web server deployed in the above two images is configured to listen on Port:8000 in IPv6, and can be considered to suppport the IPv4/IPv6 dualstack, because the Linux OS can automatically attach incoming IPv4 requests to the listening IPv6 socket by mapping A.B.C.D to ::ffff:A.B.C.D (Windows doesn't allow it). 
+The Python/Flask web server deployed in the above two images is configured to listen on Port:8000 in IPv6, and can be considered to suppport the IPv4/IPv6 dualstack, because the Linux OS can automatically attach incoming IPv4 requests to the listening IPv6 socket by mapping A.B.C.D to ::ffff:A.B.C.D (Windows doesn't allow this). 
 After receiving an image, the web server will call the FP and return the class name and probability. 
 
 # Deployment and Test 
