@@ -27,7 +27,7 @@ Use OpenCV DNN to load the TensorFlow model - GoogLeNet V1 (1000 classes) and do
 The built-in web server is listening on 8000; after receiving an image, it will do the FP and return the class name and probability.  
 
 
-# Client-Server Container Mode 
+# Deployment and Test 
 
 Run the containers:
 
