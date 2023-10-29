@@ -41,7 +41,7 @@ python3 test.py, to check the e2e time delay and jitter.
 
 python3 client.py, to check the performance of image classification. 
 
-Needs to modify the public endpoint in the code after the containers are deployed in the public cloud.
+Needs to modify the public endpoint in the code after the containers are deployed.
 
 # Client-Server Mode 
 
