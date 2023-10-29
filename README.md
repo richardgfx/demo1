@@ -39,9 +39,9 @@ The GPU may not be fully utilized because only one image is processed at a time 
 
 Run the containers:
 
-docker run --rm --gpus all -p 8000:8000 richardxgf/server-tf-gpu （needs the GPU support in the WSL2 or Linux）
-
 docker run --rm -p 8000:8000 richardxgf/server-opencv-dnn
+
+docker run --rm --gpus all -p 8000:8000 richardxgf/server-tf-gpu （needs the GPU support in the WSL2 or Linux）
 
 Run the client:
 
