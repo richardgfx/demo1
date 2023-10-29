@@ -4,7 +4,8 @@ import os
 import cv2
 import time
 
-addr = "http://172.22.124.198:8000"
+addr = "http://127.0.0.1:8000"
+#addr = "http://172.22.124.198:8000"
 test_endpoint = addr + '/'
 
 epoch = 100
