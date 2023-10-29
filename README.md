@@ -18,22 +18,15 @@ Check whether the infra could support some real-time AI applications.
 
 Two container images to use the model - GoogLeNet for image classification (1000 classes)
 
-
 (1)richardxgf/server-opencv-dnn (OpenCV 3.4, Python 3.8, Flask 3.0, Ubuntu 20.04)
-
-Use OpenCV DNN to load the TensorFlow model - GoogLeNet and do the inference, no GPU support!
-
-The built-in web server is listening on 8000; after receiving an image, it will do the FP and return the class name and probability.  
-
+Use OpenCV DNN to load the Tensorflow model - GoogLeNet and do the inference, no GPU support!
 
 (2)richardxgf/server-tf-gpu (Tensorflow 2.9.3, Cuda 11.2, cuDNN 8.1, OpenCV 4.2, Python 3.8, Flask 3.0, Ubuntu 20.04)
-
 Dynamically download the GoogLeNet model; so, the first inference would take longer time.
-
-The built-in web server is listening on 8000; after receiving an image, it will do the FP and return the class name and probability.
-
 The GPU may not be fully utilized because only one image is processed at a time by the current implementation.
 
+The Python Flask web server in the two images is configured to listen on Port:8000 in IPv6; after receiving an image, it will do the FP and return the class name and probability.  
+The Linux OS can automatically attach incoming IPv4 requests to the listening IPv6 socket by mapping A.B.C.D to ::ffff:A.B.C.D, so the web server can be  considered to support the IPv4/IPv6 dualstack. 
 
 # Deployment and Test 
 
@@ -42,6 +35,8 @@ Run the containers:
 docker run --rm -p 8000:8000 richardxgf/server-opencv-dnn
 
 docker run --rm --gpus all -p 8000:8000 richardxgf/server-tf-gpu （needs the GPU support in the WSL2 or Linux）
+
+
 
 Run the client:
 
