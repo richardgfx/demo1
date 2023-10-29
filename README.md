@@ -12,7 +12,7 @@ Clients --- Public Endpoint (Auth,RP,LB,HC) --- Containers (running in WSL2 and 
 
 Test the e2e time delay, jitter, bandwidth, throughput and process, etc.
 
-Check whether the infra could support some real-time AI applications. 
+Check whether the infrastructure could support some real-time AI applications. 
 
 # Solutions
 
