@@ -2,7 +2,7 @@
 
 The real-time and on-demand AI inference, such as image labeling, object detection and transformation, etc. 
 
-Clients --- Public Endpoint(Auth,RP,LB,HC) --- Containers (running in WSL2 and behind the firewall)
+Clients --- Public Endpoint (Auth,RP,LB,HC) --- Containers (running in WSL2 and behind the firewall)
                                
 | <------------------------------> | <---------------------------->|
   
