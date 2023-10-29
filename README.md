@@ -11,9 +11,7 @@ Clients -------- Public Endpoint(RP,Auth,LB,HC) ------- Containers (behind the f
 
 Test the e2e time delay, jitter and throughput for the real-time AI applications. 
 
-# Cloud Mode
-
-Two container images:
+# Two container images:
 
 1)server-tf-gpu (Tensorflow 2.9.3, Cuda 11.2, cuDNN 8.1, OpenCV 4.2, Python 3.8, Flask 3.0, Ubuntu 20)
 
@@ -21,11 +19,6 @@ Dynamically download the model - GoogLeNet V3 (1000 classes). The first inferenc
 
 The built-in web server is listening on 8000; after receiving an image, it will do the FP and return the class name and probability (The GPU is not fully utilized because only one image is processed at a time).
 
-Build and Deploy the container image:
-
-cd docker_tensorflow_gpu
-docker image build -t server-tf-gpu .
-docker run --rm --gpus all -p 8000:8000 server-tf-gpu
 
 2)server-opencv-dnn (OpenCV 3.4, Python 3.8, Flask 3.0, Ubuntu 20)
 
@@ -33,13 +26,16 @@ Use OpenCV DNN to load the TensorFlow model - GoogLeNet V1 (1000 classes) and do
 
 The built-in web server is listening on 8000; after receiving an image, it will do the FP and return the class name and probability.  
 
-Build and Deploy the container image:
 
-cd docker_opencv_dnn
-docker image build -t server-opencv-dnn .
+# Client-Server Container Mode 
+
+Run the containers:
+
+docker run --rm --gpus all -p 8000:8000 server-tf-gpu
+
 docker run --rm -p 8000:8000 server-opencv-dnn
 
-run the client:
+Run the client:
 
 python3 test.py, to check the e2e time delay and jitter.
 
@@ -49,11 +45,7 @@ Needs to modify the public endpoint in the code after the containers are deploye
 
 # Client-Server Mode 
 
-Run the server:  
-
-python3 3_server_opencv_dnn.py ( no GPU support )
-
-python3 4_server_tensorflow_gpu.py (WSL2 Ubuntu or Windows Host, needs Tensorflow/Cuda/cuDNN)
+Run the server： python3 3_server_opencv_dnn.py or 4_server_tensorflow_gpu.py 
 
 Run the client:
 
@@ -65,7 +57,6 @@ Needs to modify the endpoint in the code after the servers are deployed.
 
 # Local Mode 
 
-python3 1_singleton_opencv_dnn.py ( no GPU support )
+python3 1_singleton_opencv_dnn.py 
 
-python3 2_singleton_tensorflow_gpu.py (WSL2 Ubuntu or Windows Host, needs Tensorflow/Cuda/cuDNN)
-
+python3 2_singleton_tensorflow_gpu.py
