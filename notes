@@ -1,0 +1,19 @@
+############################ docker image: using Tensorflow GPU
+cd docker_tensorflow_gpu
+docker image build -t server-tf-gpu .
+docker run --rm --gpus all -p 8000:8000 server-tf-gpu
+docker run --rm --gpus all -p 8000:8000 -it server-tf-gpu /bin/bash
+
+############################ docker image: using OpenCV DNN
+cd docker_opencv_dnn
+docker image build -t server-opencv-dnn .
+docker run --rm -p 8000:8000 server-opencv-dnn
+docker run --rm -p 8000:8000 -it server-opencv-dnn /bin/bash
+
+############################ GPU Test
+nvidia-smi
+python3 -c "import tensorflow as tf; print(tf.__version__)"
+
+############################ Docker
+docker rmi $(docker images -f dangling=true -q)
+docker images -f dangling=true

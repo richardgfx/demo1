@@ -1,0 +1,6 @@
+opencv-python
+flask
+requests
+jsonpickle
+tensorflow==2.9.3-gpu
+pillow
