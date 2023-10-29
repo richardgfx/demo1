@@ -8,7 +8,7 @@ Clients --- Public Endpoint (Auth,RP,LB,HC) --- Containers (running in WSL2 and 
   
         HTTPS                       HTTP over VPN, or WSS+RP
 
-# Goal
+# Goals
 
 Test the e2e time delay, jitter, bandwidth, throughput and process, etc.
 
