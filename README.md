@@ -10,7 +10,8 @@ Clients --- Public Endpoint (Auth,RP,LB,HC) --- Containers (running in WSL2 and 
 
 # Goal
 
-Test the e2e time delay, jitter, bandwidth, throughput and process, etc;
+Test the e2e time delay, jitter, bandwidth, throughput and process, etc.
+
 Check whether the infra could support some real-time AI applications. 
 
 # Two container images to use the model - GoogLeNet for image classification (1000 classes)
