@@ -6,7 +6,7 @@ Clients --- Public Endpoint(Auth,RP,LB,HC) --- Containers (running in WSL2 and b
                                
 | <------------------------------> | <---------------------------->|
   
-        HTTPS                         HTTP over VPN, or WSS+RP
+        HTTPS                       HTTP over VPN, or WSS+RP
 
 # Goal
 
