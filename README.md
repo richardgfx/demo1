@@ -41,7 +41,7 @@ docker run --rm -p 8000:8000 richardxgf/server-opencv-dnn:1.0.0
 
 docker run --rm --gpus all -p 8000:8000 richardxgf/server-tf-gpu:1.0.0 （needs the GPU support in the WSL2 or Linux）
 
-The containers cannot be reached by their IPs while running in the Docket Desktop + WSL2 environment, and the WSL2 doesn't support IPv6 well, but you can still access the containers by using the WSL2 IPv4 addresses and the loopback IPv6 address ([::1]) if publishing the container's port to the WSL2.   
+The containers cannot be reached by their IPs while running in the Docker Desktop + WSL2 environment, and the WSL2 doesn't support IPv6 well, but you can still access the containers by using the WSL2 IPv4 addresses and the loopback IPv6 address ([::1]) if publishing the container's port to the WSL2.   
 
 Run the client:
 
