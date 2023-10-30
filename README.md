@@ -6,7 +6,7 @@ Clients --- Public Endpoint (Auth,RP,LB,HC) --- Containers (running in WSL2 and 
                                
 | <------------------------------> | <---------------------------->|
   
-        HTTPS                       HTTP over VPN, or WSS+RP
+        HTTPS                       HTTP over VPN, or RP over WSS
 
 # Goals
 
@@ -71,4 +71,4 @@ Run the code in the Windows, WSL2 or Linux：
 
 1_singleton_opencv_dnn.py 
 
-2_singleton_tensorflow_gpu.py # the host（need the GPU support and Tensorflow/CUDA/cnDNN installed in the Windows, WSL2 or Linux）
+2_singleton_tensorflow_gpu.py # (needs the GPU support and Tensorflow/CUDA/cnDNN installed in the Windows, WSL2 or Linux）
