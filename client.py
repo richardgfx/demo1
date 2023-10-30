@@ -27,7 +27,7 @@ epoch = 10
 starttime = time.time()
 for i in range(epoch):
     for filename in image_filenames:
-        origin_img = cv2.imread(temp)
+        origin_img = cv2.imread(filename)
         img = cv2.resize(origin_img, (224, 224))
 
         # image data -> memory cache
